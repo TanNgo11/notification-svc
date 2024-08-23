@@ -2,7 +2,6 @@ package com.shadcn.notificationservice.dto.request;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
 ;
 
 @Data
