@@ -1,9 +1,9 @@
 package com.shadcn.notificationservice.exception;
 
-
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
+
+import lombok.Getter;
 
 @Getter
 public enum ErrorCode {
@@ -14,7 +14,6 @@ public enum ErrorCode {
     CANNOT_SEND_EMAIL(1008, "Cannot send email", HttpStatus.BAD_REQUEST),
     RESOURCE_NOT_FOUND(1010, "Resource not found", HttpStatus.NOT_FOUND),
     ;
-
 
     private int code;
     private String message;
