@@ -1,19 +1,18 @@
 package com.shadcn.notificationservice.controller;
 
-import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
+import com.shadcn.event.dto.NotificationEvent;
 import com.shadcn.notificationservice.dto.ApiResponse;
 import com.shadcn.notificationservice.dto.request.SendEmailRequest;
 import com.shadcn.notificationservice.dto.response.EmailResponse;
 import com.shadcn.notificationservice.service.EmailService;
-
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
@@ -29,8 +28,8 @@ public class EmailController {
                 .build();
     }
 
-    @KafkaListener(topics = "onboard-successful")
-    public void listenNotificationDelivery(String message) {
-        log.info("Message received: {}", message);
+    @KafkaListener(topics = "notification-delivery")
+    public void listenNotificationDelivery(NotificationEvent message) {
+        log.info("Message received: {}", message.toString());
     }
 }
