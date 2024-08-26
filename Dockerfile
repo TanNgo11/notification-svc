@@ -23,7 +23,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the JAR file from the build stage
-COPY --from=build /target/notification-svc-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /target/notification-service-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose port 80
 EXPOSE 80
